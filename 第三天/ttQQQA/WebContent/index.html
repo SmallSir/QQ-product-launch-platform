@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>I'm QQ - 每一天，乐在沟通</title>
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	color:#333;
+	background:#fff;
+	background-image:url(images/bg1_1600.jpg);
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+}
+.topbar{
+	position:absolute;
+	height:150px;
+	width:100%;
+	left:0px;
+	tp:0px;
+	background-color:#1e1;
+	z-index:900;
+}
+.topicfixed
+{
+	position:fixed;
+	height:75px;
+	width:100%;
+	left:0px;
+	tp:0px;
+	background-color:blue;
+	z-index:900;
+}
+.corssbanner_1
+{	
+	width:100%;
+	height:778px;
+	overflow:hidden;
+}
+.corssbanner_2
+{	
+	width:100%;
+	height:778px;
+	overflow:hidden;
+	background:transparent url(images/pic1.png) no-repeat 0 0;
+}
+.newfoot{
+	height:348px;
+	width:100%;
+	padding-top:34px;
+	background-color:#2a2a2a;
+}
+</style>
+</head>
+<body>
+	<div class="topbar " id = "topbar">
+
+	</div>
+	<div class="corssbanner_1">
+
+	</div>
+	<div class="corssbanner_2">
+
+	</div>
+	<div class="newfoot">
+
+	</div>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" >
+	 		var scrollTop = $(window).scrollTop();
+	 		var firstHight = 150;
+	 		var winHeight = $(window).height();
+	 		var bodyHeight = $("body").height();
+	 		$(window).scroll(function(e){
+	 			scrollTop = $(window).scrollTop();
+	 			if(scrollTop>=firstHight)
+	 			{
+	 				$("#topbar").addClass("topicfixed");
+	 			}
+	 			else if($("#topbar").hasClass("topicfixed"))
+	 			{
+	 				$("#topbar").removeClass("topicfixed");
+	 			}
+	 		})
+	</script>
+</body>
+</html>

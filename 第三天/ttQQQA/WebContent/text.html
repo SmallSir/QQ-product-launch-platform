@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>hhh</title>
+</head>
+<body>
+	<script type="text/javascript" src="zui/js/jquery.min.js"></script>
+	<script type="text/javascript" src="zui/js/zui.min.js"></script>
+	<script type="text/javascript" src="zui/lib/chart/zui.chart.min.js"></script>
+	<canvas id="myChart" width="400px" height="400px">
+	</canvas>
+	<script>
+		// 使用jquery方法获取 2d context 对象
+		var ctx = $("#myChart").get(0).getContext("2d");
+		// 或者使用 document.getElementById 获取 2d context 对象
+		// var ctx = document.getElementById("myChart").getContext("2d");
+		// 使用$.zui.Chart构造Chart实例
+		var myNewChart = new $.zui.Chart(ctx);
+		var data = {
+			    labels: ["一月", "二月", "三月", "四月", "五月", "六月", "七月"],
+			    datasets: [
+			        {
+			            label: "蓝队",
+			            color: 'blue',
+			            data: [65, 59, 80, 81, 56, 55, 40]
+			        }, {
+			            label: "绿队",
+			            color: 'green',
+			            data: [28, 48, 40, 19, 86, 27, 90]
+			        }
+			    ]
+			};
+
+			var options = {responsive: true,
+					 //Boolean - 垂直刻度是否从0开始，如果为false，则从最小值开始
+				    scaleBeginAtZero: true,
+
+				    //Boolean - 是否显示网格线
+				    scaleShowGridLines: true,
+
+				    //String - 网格线条颜色
+				    scaleGridLineColor: "rgba(0,0,0,.05)",
+
+				    //Number - 网格线条宽度
+				    scaleGridLineWidth: 1,
+
+				    //Boolean - 是否显示水平轴线
+				    scaleShowHorizontalLines: true,
+
+				    //Boolean - 是否显示垂直轴线
+				    scaleShowVerticalLines: true,
+
+				    //Boolean - 柱状条是否绘制描边
+				    barShowStroke: true,
+
+				    //Number - 柱状条描边宽度
+				    barStrokeWidth: 1,
+
+				    //Number - 每一组值在水平轴上的间隔宽度
+				    barValueSpacing: 5,
+
+				    //Number - 每个数据集相邻的间隔
+				    barDatasetSpacing: 1,
+
+				    //String - 图例模板
+				    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].fillColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"}; // 图表配置项，可以留空来使用默认的配置
+			var myBarChart = $('#myChart').barChart(data, options);
+	</script>
+	
+</body>
+</html>
